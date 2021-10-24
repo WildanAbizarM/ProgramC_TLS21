@@ -1,0 +1,52 @@
+#include <iostream>
+
+using namespace std;
+
+int main ()
+{
+  int n, i, j, det;
+  int a[3][3];
+
+  cout << "Kalkulator Determinan Matriks Persegi Hingga Ordo 3x3" << endl;
+  cout << "--------------------------------------------------------" << endl;
+  cout << "\nKeterangan : hanya bisa menghitung dalam bentuk integer"<<endl;
+  cout << "\nMasukkan Ordo Matriks : ";
+  cin >> n;
+
+  if (n == 1)
+    cout << "\nDeterminan matriks adalah : 0";
+  else if (n > 3)
+    cout << "\nHanya dapat menghitung hingga ordo 3";
+  else if (n < 1)
+    cout << "\nMasukkan ordo dengan benar";
+  else if (n == 2 or n == 3)
+  {
+    cout << "\nMasukkan Elemen Matriks : " << endl;
+    for (i = 0; i < n; i++){
+	    for (j = 0; j < n; j++)
+	    cin >> a[i][j];
+	 }
+
+    cout << "\nMatriks yang anda masukkan adalah : " << endl;
+    for (i = 0; i < n; i++){
+	    for (j = 0; j < n; j++)
+	    cout << a[i][j] << " ";
+	    cout << endl;
+	 }
+
+    if (n == 2)
+	 {
+	  det = a[0][0]*a[1][1] - a[1][0]*a[0][1];
+	  cout << "\nDeterminan matriks adalah : " << det;
+	 }
+    else
+	 {
+	  det = a[0][0]*(a[1][1]*a[2][2] - a[1][2]*a[2][1]) - a[0][1]*(a[1][0]*a[2][2] - a[1][2]*a[2][0]) + a[0][2]*(a[1][0]*a[2][1] - a[1][1]*a[2][0]);
+	  cout << "\nDeterminan matriks adalah : " << det;
+	 }
+  }
+  else
+    cout<<"\nMasukkan ordo dengan benar";
+    
+  return 0;
+}
